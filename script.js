@@ -85,7 +85,7 @@ function initMap() {
 		position: pos,
 		animation: google.maps.Animation.DROP,
 		title: "i m the boss",
-		//icon: image,
+		icon: "assets/car3-32x32.png",
 
 		zIndex: 99
 	});
@@ -149,12 +149,12 @@ function initMap() {
 		map_marker.setVisible(true);
 
 		window.setInterval(function() {
-			pos.lat -= 0.00005;
-			pos.lng -= 0.00005;
+			pos.lat -= 0.0000005;
+			pos.lng -= 0.0000005;
 
 			map_marker.setPosition(pos);
 
-		}, 1000);
+		}, 1000/30);
   	});
 
   	function route(origin_place_id, destination_place_id, travel_mode, directionsService, directionsDisplay) {
