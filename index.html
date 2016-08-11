@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title>Map Autocomplete</title>
+    	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    	<meta charset="utf-8">
+		<!-- Stylesheet -->
+	  	<link rel="stylesheet" href="sass/style.scss">
+		<!-- Script --> 
+	  	<script src="script.js"></script>
+  	</head>
+	
+  <body>
+	  <input id="origin-input" class="origin-input controls" type="text" placeholder="Enter location">
+	  <input id="destination-input" class="destination-input controls" type="text" placeholder="Enter destination">
+	  <div id="map"></div>
+	  
+	  <!-- Google API Key -->
+	  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAi6f6VZ3aSa4sLRuahHY92Ss10A7ggJc&libraries=places&callback=initMap"
+        async defer></script>
+	</body>
+</html>
