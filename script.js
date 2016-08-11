@@ -71,7 +71,7 @@ function initMap() {
   	origin_autocomplete.bindTo('bounds', map);
   	var destination_autocomplete = new google.maps.places.Autocomplete(destination_input);
   	destination_autocomplete.bindTo('bounds', map);
-	
+
 	//Place marker on origin_destination
 	var marker = new google.maps.Marker({ map: map, icon: 'assets/placeholder-14.png' });
 
@@ -129,7 +129,7 @@ function initMap() {
   	});
 
 
-	
+
   	function route(origin_place_id, destination_place_id, travel_mode, directionsService, directionsDisplay) {
     	if (!origin_place_id || !destination_place_id) {
       		return;
@@ -138,7 +138,7 @@ function initMap() {
       		origin: {'placeId': origin_place_id},
       		destination: {'placeId': destination_place_id},
       		travelMode: travel_mode
-    	}, 
+    	},
 		function(response, status) {
       		if (status === 'OK') {
         		directionsDisplay.setDirections(response);
