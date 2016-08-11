@@ -1,3 +1,11 @@
+
+
+var lat = 45.756432;
+var lng = 21.228477;
+
+var pos = {lat, lng};
+
+
 function initMap() {
 	var origin_place_id = null;
 	var destination_place_id = null;
@@ -45,7 +53,7 @@ function initMap() {
 			 "elementType":"geometry",
 			 "stylers":[{"color":"#000000"},{"lightness":17}]}]
 	});
-	
+
 	var directionsService = new google.maps.DirectionsService;
 	var rendererOptions = {
 		map: map,
@@ -75,6 +83,21 @@ function initMap() {
 	//Place marker on origin_destination
 	var marker = new google.maps.Marker({ map: map, icon: 'assets/placeholder-14.png' });
 
+
+	var map_marker = new google.maps.Marker({
+		map: map,
+		position: pos,
+		animation: google.maps.Animation.DROP,
+		title: "i m the boss",
+		//icon: image,
+
+		zIndex: 99
+	});
+
+		map_marker.setPosition(pos);
+		map_marker.setMap(map);
+
+		map_marker.setVisible(false);
     origin_autocomplete.addListener('place_changed', function() {
 		var place = origin_autocomplete.getPlace();
         if (!place.geometry) {
@@ -92,6 +115,7 @@ function initMap() {
             location: place.geometry.location,
 		});
 		marker.setVisible(true);
+
 	});
 
   	function expandViewportToFitPlace(map, place) {
@@ -126,6 +150,15 @@ function initMap() {
 		destination_place_id = place.place_id;
     	route(origin_place_id, destination_place_id, travel_mode, directionsService, directionsDisplay);
 		marker.setVisible(false);
+		map_marker.setVisible(true);
+
+		window.setInterval(function() {
+			pos.lat -= 0.00005;
+			pos.lng -= 0.00005;
+
+			map_marker.setPosition(pos);
+
+		}, 1000);
   	});
 
 
