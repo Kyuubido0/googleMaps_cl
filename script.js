@@ -57,6 +57,7 @@ function initMap() {
 
   	var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
 	directionsDisplay.setMap(map);
+	/*directionsDisplay.setOptions( { suppressMarkers: true } );*/
 
   	var origin_input = document.getElementById('origin-input');
   	var destination_input = document.getElementById('destination-input');
@@ -72,9 +73,7 @@ function initMap() {
   	destination_autocomplete.bindTo('bounds', map);
 	
 	//Place marker on origin_destination
-	var marker = new google.maps.Marker({
-		map: map
-	});
+	var marker = new google.maps.Marker({ map: map, icon: 'assets/placeholder-14.png' });
 
     origin_autocomplete.addListener('place_changed', function() {
 		var place = origin_autocomplete.getPlace();
@@ -90,25 +89,17 @@ function initMap() {
         // Set the position of the marker using the place ID and location.
 		marker.setPlace({
 			placeId: place.place_id,
-            location: place.geometry.location
+            location: place.geometry.location,
 		});
 		marker.setVisible(true);
 	});
-	
-  	// Sets a listener on a radio button to change the filter type on Places Autocomplete.
-	function setupClickListener(id, mode) {
-		var radioButton = document.getElementById(id);
-    	radioButton.addEventListener('click', function() {
-      	travel_mode = mode;
-    	});
-  	}
 
   	function expandViewportToFitPlace(map, place) {
     	if (place.geometry.viewport) {
       		map.fitBounds(place.geometry.viewport);
     	} else {
       		map.setCenter(place.geometry.location);
-			map.setZoom(17);
+			map.setZoom(10);
     	}
   	}
 
@@ -134,8 +125,11 @@ function initMap() {
     	// If the place has a geometry, store its place ID and route if we have the other place ID
 		destination_place_id = place.place_id;
     	route(origin_place_id, destination_place_id, travel_mode, directionsService, directionsDisplay);
+		marker.setVisible(false);
   	});
 
+
+	
   	function route(origin_place_id, destination_place_id, travel_mode, directionsService, directionsDisplay) {
     	if (!origin_place_id || !destination_place_id) {
       		return;
