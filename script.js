@@ -1,10 +1,7 @@
-
-
 var lat = 45.756432;
 var lng = 21.228477;
 
 var pos = {lat, lng};
-
 
 function initMap() {
 	var origin_place_id = null;
@@ -83,7 +80,6 @@ function initMap() {
 	//Place marker on origin_destination
 	var marker = new google.maps.Marker({ map: map, icon: 'assets/placeholder-14.png' });
 
-
 	var map_marker = new google.maps.Marker({
 		map: map,
 		position: pos,
@@ -160,8 +156,6 @@ function initMap() {
 
 		}, 1000);
   	});
-
-
 
   	function route(origin_place_id, destination_place_id, travel_mode, directionsService, directionsDisplay) {
     	if (!origin_place_id || !destination_place_id) {
