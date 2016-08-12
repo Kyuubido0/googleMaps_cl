@@ -15,27 +15,32 @@ html, body {
 }
 
 .info-matrix{
-	width: 5%;
-	height: 100%;
+	width: 70%;
+	height: 10%;
+	box-sizing: border-box;
 	background-color: #701112;
-	float: left;
-	clear: both;
 	text-align: center;
 }
 
 .image{
-	display: block;
-	padding: 20px 0;
-	padding-bottom: 5px;
-	margin: 0 auto;
+	float: right;
+	padding: 10px 20px 0 20px;
+}
+
+.distance{
+	margin-right: 40px;
+}
+
+.clock{
+	margin-right: 30px;
 }
 
 .info-dist {
-	margin: 0 auto;
-	padding: 20px 0 20px 0;
 	color: #fff;
 	font-family: Roboto;
 	font-weight: bold;
+	padding: 0;
+	margin: 0;
 }
 
 #map {
@@ -43,7 +48,7 @@ html, body {
 	width: 70%;
 	border: solid #701112 13px;
 	box-sizing: border-box;
-	border-left: none;
+	border-bottom: none;
 }
 
 .controls {
