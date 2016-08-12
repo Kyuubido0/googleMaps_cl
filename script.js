@@ -3,6 +3,8 @@ var lng = 21.228477;
 
 var pos = {lat, lng};
 
+var origin_calc;
+var dest_calc;
 function initMap() {
 	var origin_place_id = null;
 	var destination_place_id = null;
@@ -76,7 +78,7 @@ function initMap() {
   	var destination_autocomplete = new google.maps.places.Autocomplete(destination_input);
   	destination_autocomplete.bindTo('bounds', map);
 
-	//Place marker on origin_destination and place the animated marker 
+	//Place marker on origin_destination and place the animated marker
 	var marker = new google.maps.Marker({ map: map, icon: 'assets/placeholder-14.png' });
 
 	var map_marker = new google.maps.Marker({
@@ -91,7 +93,7 @@ function initMap() {
 		map_marker.setPosition(pos);
 		map_marker.setMap(map);
 		map_marker.setVisible(false);
-	
+
     	origin_autocomplete.addListener('place_changed', function() {
 		var place = origin_autocomplete.getPlace();
         if (!place.geometry) {
@@ -123,6 +125,8 @@ function initMap() {
 
   	origin_autocomplete.addListener('place_changed', function() {
     	var place = origin_autocomplete.getPlace();
+		origin_calc = place.formatted_address;
+		console.dir(place);
     	if (!place.geometry) {
       		window.alert("Autocomplete's returned place contains no geometry.");
       		return;
@@ -135,6 +139,7 @@ function initMap() {
 
   	destination_autocomplete.addListener('place_changed', function() {
     	var place = destination_autocomplete.getPlace();
+		dest_calc = place.formatted_address;
     	if (!place.geometry) {
       		window.alert("Autocomplete's returned place contains no geometry.");
       		return;
@@ -145,7 +150,7 @@ function initMap() {
     	route(origin_place_id, destination_place_id, travel_mode, directionsService, directionsDisplay);
 		marker.setVisible(false);
 		map_marker.setVisible(true);
-		
+
 		//Set interval for speed and take the mag of the lng and lat
 		window.setInterval(function() {
 			pos.lat -= 0.00005;
@@ -166,9 +171,39 @@ function initMap() {
 		function(response, status) {
       		if (status === 'OK') {
         		directionsDisplay.setDirections(response);
+
+				var origin1 = origin_calc;
+				var destinationA = dest_calc;
+
+				console.dir(origin1);
+				var service = new google.maps.DistanceMatrixService();
+				service.getDistanceMatrix({
+					origins: [origin1],
+					destinations: [destinationA],
+					travelMode: 'DRIVING',
+					unitSystem: google.maps.UnitSystem.METRIC
+				}, callback);
+				function callback(response, status) {
+					console.dir( response);
+					if(status == 'OK') {
+						var origins = response.originAddresses[0];
+						var destinations = response.destinationAddresses[0];
+
+						var results = response.rows[0].elements[0];
+
+						var distance = results.distance.text;
+						var duration = results.duration.text;
+
+
+					}
+				}
+
       		} else {
         		window.alert('Directions request failed due to ' + status);
       		}
     	});
+
   	}
+
+
 }
