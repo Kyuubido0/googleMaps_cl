@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
-	
+
 	<head>
 		<title>Map Autocomplete</title>
     	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     	<meta charset="utf-8">
 		<!-- Stylesheet -->
 	  	<link rel="stylesheet" href="sass/style.scss">
-		<!-- Script --> 
+		<!-- Script -->
+		<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 	  	<script src="script.js"></script>
   	</head>
-	
+
   <body>
 	  <div class="wrapper">
 		  <div class="info-matrix">
-			  <img src="assets/distance.png" class="image distance">
-			  <img src="assets/clock.png" class="image clock">
+				<img src="assets/distance.png" class="image distance">
+				<div class="info-dist">dfgdf</div>
+				<img src="assets/clock.png" class="image clock">
+				<div class="info-dist">dsfgdfg</div>
 		  </div>
 		  <input id="origin-input" class="origin-input controls" type="text" placeholder="Enter location">
 		  <input id="destination-input" class="destination-input controls" type="text" placeholder="Enter destination">
 		  <div id="map"></div>
 	  </div>
-	  
+
 	  <!-- Google API Key -->
 	  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAi6f6VZ3aSa4sLRuahHY92Ss10A7ggJc&libraries=places&callback=initMap"
         async defer></script>

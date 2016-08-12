@@ -18,18 +18,27 @@ html, body {
 	background-color: #701112;
 	float: left;
 	clear: both;
+	text-align: center;
 }
 
 .image{
-	padding: 20px;
+	display: block;
+	padding: 20px 0;
+	padding-bottom: 5px;
+	margin: 0 auto;
 }
-
+.info-dist {
+	margin: 20px;
+	color: #fff;
+	font-family: Roboto;
+	font-weight: bold;
+}
 #map {
 	height: 100%;
 	width: 70%;
 	border: solid #701112 13px;
 	box-sizing: border-box;
-
+	border-left: none;
 }
 
 .controls {
