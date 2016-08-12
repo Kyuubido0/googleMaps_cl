@@ -1,4 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,100,100italic,300italic,300);
 html, body {
+	font-family: 'Roboto', sans-serif;
 	height: 100%;
 	margin: 0;
 	padding: 0;
@@ -27,12 +29,15 @@ html, body {
 	padding-bottom: 5px;
 	margin: 0 auto;
 }
+
 .info-dist {
-	margin: 20px;
+	margin: 0 auto;
+	padding: 20px 0 20px 0;
 	color: #fff;
 	font-family: Roboto;
 	font-weight: bold;
 }
+
 #map {
 	height: 100%;
 	width: 70%;
@@ -56,7 +61,7 @@ html, body {
 .origin-input,
 .destination-input {
 	background-color: #fff;
-	font-family: Roboto;
+	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
 	font-weight: 300;
 	margin-left: 12px;

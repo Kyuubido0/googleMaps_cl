@@ -1,10 +1,11 @@
+//Vars for the lat and lng
 var lat = 45.756432;
 var lng = 21.228477;
-
 var pos = {lat, lng};
-
+//Vars for the origin and destination point for dist and dur
 var origin_calc;
 var dest_calc;
+
 function initMap() {
 	var origin_place_id = null;
 	var destination_place_id = null;
@@ -188,22 +189,13 @@ function initMap() {
 					if(status == 'OK') {
 						var origins = response.originAddresses[0];
 						var destinations = response.destinationAddresses[0];
-
 						var results = response.rows[0].elements[0];
-
 						var distance = results.distance.text;
 						var duration = results.duration.text;
-
-
 					}
 				}
-
       		} else {
-        		window.alert('Directions request failed due to ' + status);
-      		}
+        		window.alert('Directions request failed due to ' + status);}
     	});
-
   	}
-
-
 }
