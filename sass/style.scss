@@ -36,11 +36,12 @@ html, body {
 }
 
 .info-dist {
+	float: right;
 	color: #fff;
 	font-family: Roboto;
 	font-weight: bold;
-	padding: 0;
-	margin: 0;
+	padding: 20px 10px 0 10px;
+	margin: 0 auto;
 }
 
 #map {
