@@ -22,6 +22,7 @@ header {
 .info-matrix{
 	width: 70%;
 	height: 10%;
+	margin: 0 auto;
 	box-sizing: border-box;
 	background-color: #701112;
 	text-align: center;
@@ -50,6 +51,7 @@ header {
 }
 
 #map {
+	margin:0 auto;
 	height: 100%;
 	width: 70%;
 	border: solid #701112 13px;
