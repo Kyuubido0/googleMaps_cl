@@ -1,3 +1,4 @@
+
 //Vars for the lat and lng
 var lat = 45.756432;
 var lng = 21.228477;
@@ -5,6 +6,11 @@ var pos = {lat, lng};
 //Vars for the origin and destination point for dist and dur
 var origin_calc;
 var dest_calc;
+var origins;
+var destinations;
+var results;
+var distance;
+var duration;
 
 function initMap() {
 	var origin_place_id = null;
@@ -187,11 +193,13 @@ function initMap() {
 				function callback(response, status) {
 					console.dir( response);
 					if(status == 'OK') {
-						var origins = response.originAddresses[0];
-						var destinations = response.destinationAddresses[0];
-						var results = response.rows[0].elements[0];
-						var distance = results.distance.text;
-						var duration = results.duration.text;
+						origins = response.originAddresses[0];
+						destinations = response.destinationAddresses[0];
+						results = response.rows[0].elements[0];
+						distance = results.distance.text;
+						duration = results.duration.text;
+						$('.distance').text(distance);
+						$('.duration').text(duration);
 					}
 				}
       		} else {
@@ -199,3 +207,6 @@ function initMap() {
     	});
   	}
 }
+
+
+console.dir(distance, duration);
