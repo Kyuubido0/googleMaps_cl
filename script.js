@@ -6,7 +6,7 @@ var pos = {lat, lng};
 function initMap() {
 	var origin_place_id = null;
 	var destination_place_id = null;
-	var travel_mode = 'WALKING';
+	var travel_mode = 'DRIVING';
 	var map = new google.maps.Map(document.getElementById('map'), {
 		mapTypeControl: false,
 		center: {lat: 45.7494444, lng: 21.2272222},
@@ -70,31 +70,29 @@ function initMap() {
 
   	map.controls[google.maps.ControlPosition.TOP_LEFT].push(origin_input);
   	map.controls[google.maps.ControlPosition.TOP_LEFT].push(destination_input);
-  	map.controls[google.maps.ControlPosition.TOP_LEFT].push(modes);
 
   	var origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
   	origin_autocomplete.bindTo('bounds', map);
   	var destination_autocomplete = new google.maps.places.Autocomplete(destination_input);
   	destination_autocomplete.bindTo('bounds', map);
 
-	//Place marker on origin_destination
+	//Place marker on origin_destination and place the animated marker 
 	var marker = new google.maps.Marker({ map: map, icon: 'assets/placeholder-14.png' });
 
 	var map_marker = new google.maps.Marker({
 		map: map,
 		position: pos,
 		animation: google.maps.Animation.DROP,
-		title: "i m the boss",
+		title: "basic-animated-picker",
 		icon: "assets/car3-32x32.png",
-
 		zIndex: 99
 	});
 
 		map_marker.setPosition(pos);
 		map_marker.setMap(map);
-
 		map_marker.setVisible(false);
-    origin_autocomplete.addListener('place_changed', function() {
+	
+    	origin_autocomplete.addListener('place_changed', function() {
 		var place = origin_autocomplete.getPlace();
         if (!place.geometry) {
 			return;
@@ -147,14 +145,13 @@ function initMap() {
     	route(origin_place_id, destination_place_id, travel_mode, directionsService, directionsDisplay);
 		marker.setVisible(false);
 		map_marker.setVisible(true);
-
+		
+		//Set interval for speed and take the mag of the lng and lat
 		window.setInterval(function() {
-			pos.lat -= 0.0000005;
-			pos.lng -= 0.0000005;
-
+			pos.lat -= 0.00005;
+			pos.lng -= 0.00005;
 			map_marker.setPosition(pos);
-
-		}, 1000/30);
+		}, 1000/10);
   	});
 
   	function route(origin_place_id, destination_place_id, travel_mode, directionsService, directionsDisplay) {

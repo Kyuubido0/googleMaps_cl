@@ -12,9 +12,15 @@
   	</head>
 	
   <body>
-	  <input id="origin-input" class="origin-input controls" type="text" placeholder="Enter location">
-	  <input id="destination-input" class="destination-input controls" type="text" placeholder="Enter destination">
-	  <div id="map"></div>
+	  <div class="wrapper">
+		  <div class="info-matrix">
+			  <img src="assets/distance.png" class="image distance">
+			  <img src="assets/clock.png" class="image clock">
+		  </div>
+		  <input id="origin-input" class="origin-input controls" type="text" placeholder="Enter location">
+		  <input id="destination-input" class="destination-input controls" type="text" placeholder="Enter destination">
+		  <div id="map"></div>
+	  </div>
 	  
 	  <!-- Google API Key -->
 	  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAi6f6VZ3aSa4sLRuahHY92Ss10A7ggJc&libraries=places&callback=initMap"

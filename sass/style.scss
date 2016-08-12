@@ -4,10 +4,30 @@ html, body {
 	padding: 0;
 	margin-top: 20px;
 }
+
+.wrapper{
+	margin: 0 auto;
+	padding: 0;
+	width: 80%;
+	height: 80%;
+}
+
+.info-matrix{
+	width: 5%;
+	height: 75%;
+	background-color: #701112;
+	float: left;
+	clear: both;
+}
+
+.image{
+	padding: 20px;
+}
+
 #map {
 	height: 70%;
 	width: 70%;
-	margin: 0 auto;
+    border: solid #701112 13px;
 }
 
 .controls {

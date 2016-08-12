@@ -1,0 +1,69 @@
+/* line 1, ../sass/style.scss */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+}
+
+/* line 8, ../sass/style.scss */
+.wrapper {
+  margin: 0 auto;
+  padding: 0;
+  width: 80%;
+  height: 80%;
+}
+
+/* line 15, ../sass/style.scss */
+.info-matrix {
+  width: 5%;
+  height: 75%;
+  background-color: #701112;
+  float: left;
+  clear: both;
+}
+
+/* line 23, ../sass/style.scss */
+.image {
+  padding: 20px;
+}
+
+/* line 27, ../sass/style.scss */
+#map {
+  height: 70%;
+  width: 70%;
+  border: solid #701112 13px;
+}
+
+/* line 33, ../sass/style.scss */
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}
+
+/* line 45, ../sass/style.scss */
+.origin-input,
+.destination-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 200px;
+  margin-top: 10px;
+}
+
+/* line 58, ../sass/style.scss */
+.origin-input:focus,
+.destination-input:focus {
+  border-color: #4d90fe;
+}
