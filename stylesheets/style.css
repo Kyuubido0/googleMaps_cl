@@ -13,7 +13,13 @@ html, body {
   width: 80%;
   height: 80%;
 }
-
+header {
+	background: black;
+	color: white;
+	text-align: center;
+	padding: 1%;
+    margin-bottom: 20px;
+}
 /* line 15, ../sass/style.scss */
 .info-matrix {
   width: 5%;
