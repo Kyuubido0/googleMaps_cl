@@ -1,47 +1,87 @@
-/* line 1, ../sass/style.scss */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,100,100italic,300italic,300);
+/* line 2, ../sass/style.scss */
 html, body {
+  font-family: 'Roboto', sans-serif;
   height: 100%;
   margin: 0;
   padding: 0;
-  margin-top: 20px;
 }
 
-/* line 8, ../sass/style.scss */
+/* line 9, ../sass/style.scss */
 .wrapper {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
 }
+
+/* line 16, ../sass/style.scss */
 header {
-	background: black;
-	color: white;
-	text-align: center;
-	padding: 1%;
-    margin-bottom: 20px;
-}
-/* line 15, ../sass/style.scss */
-.info-matrix {
-  width: 5%;
-  height: 75%;
-  background-color: #701112;
-  float: left;
-  clear: both;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 1%;
 }
 
 /* line 23, ../sass/style.scss */
+.info-matrix {
+  width: 100%;
+  height: 10%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #701112;
+  text-align: center;
+}
+
+/* line 32, ../sass/style.scss */
 .image {
-  padding: 20px;
+  float: right;
+  padding: 10px 20px 0 20px;
 }
 
-/* line 27, ../sass/style.scss */
+/* line 37, ../sass/style.scss */
+.distance {
+  margin-right: 20px;
+}
+
+/* line 41, ../sass/style.scss */
+.clock {
+  margin-right: 30px;
+}
+
+/* line 45, ../sass/style.scss */
+.info-dist {
+  float: right;
+  color: #fff;
+  font-family: Roboto;
+  font-weight: bold;
+  padding: 20px 10px 0 10px;
+  margin: 0 auto;
+}
+
+/* line 54, ../sass/style.scss */
 #map {
-  height: 70%;
-  width: 70%;
+  height: 100%;
+  width: 100%;
   border: solid #701112 13px;
+  box-sizing: border-box;
+  border-bottom: none;
 }
 
-/* line 33, ../sass/style.scss */
+@media screen and (max-width: 480px) {
+  /* line 63, ../sass/style.scss */
+  .destination-input {
+    left: 0 !important;
+    top: 60px !important;
+    width: 90% !important;
+  }
+
+  /* line 68, ../sass/style.scss */
+  .origin-input {
+    width: 90% !important;
+  }
+}
+/* line 73, ../sass/style.scss */
 .controls {
   margin-top: 10px;
   border: 1px solid transparent;
@@ -54,11 +94,21 @@ header {
   margin: 0 auto;
 }
 
-/* line 45, ../sass/style.scss */
+/* line 85, ../sass/style.scss */
+.destination-input {
+  background: url(../assets/red-circle.png) no-repeat left;
+}
+
+/* line 89, ../sass/style.scss */
+.origin-input {
+  background: url(../assets/green-circle.png) no-repeat left;
+}
+
+/* line 93, ../sass/style.scss */
 .origin-input,
 .destination-input {
   background-color: #fff;
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
   font-size: 15px;
   font-weight: 300;
   margin-left: 12px;
@@ -68,7 +118,7 @@ header {
   margin-top: 10px;
 }
 
-/* line 58, ../sass/style.scss */
+/* line 106, ../sass/style.scss */
 .origin-input:focus,
 .destination-input:focus {
   border-color: #4d90fe;

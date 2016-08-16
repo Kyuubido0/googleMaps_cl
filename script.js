@@ -73,8 +73,8 @@ function initMap() {
 	directionsDisplay.setMap(map);
 	/*directionsDisplay.setOptions( { suppressMarkers: true } );*/
 
-  	var origin_input = document.getElementById('origin-input');
-  	var destination_input = document.getElementById('destination-input');
+  	var origin_input = document.getElementById('origin');
+  	var destination_input = document.getElementById('destination');
   	var modes = document.getElementById('mode-selector');
 
   	map.controls[google.maps.ControlPosition.TOP_LEFT].push(origin_input);
